@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authority Dashboard | CitizenVoice</title>
+
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Leaflet: free, open-source map rendering — no API key required.
+         Loaded here (not on index.html) because this is the only page with a map. -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        /* Small additions specific to this page — kept separate from your
+           existing stylesheets so nothing else is affected. */
+        .container { max-width: 1000px; }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .filters select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .complaint-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+        .complaint-card .row1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .badge-low { background: #e6f4ea; color: #1e7e34; }
+        .badge-medium { background: #fff8e1; color: #9c7a00; }
+        .badge-high { background: #ffe8d6; color: #b5540a; }
+        .badge-critical { background: #fde2e2; color: #c0202a; }
+
+        .complaint-card .meta {
+            font-size: 12px;
+            color: #888;
+            margin-top: 6px;
+        }
+        .complaint-card .text {
+            margin-top: 10px;
+            color: #333;
+        }
+        .status-row {
+            margin-top: 12px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .status-row select {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .status-row button {
+            width: auto;
+            padding: 6px 16px;
+            font-size: 13px;
+        }
+        .duplicate-flag {
+            font-size: 11px;
+            color: #b5540a;
+            margin-top: 6px;
+        }
+
+        /* Hotspot map */
+        #hotspotMap {
+            height: 380px;
+            border-radius: 10px;
+            margin-bottom: 28px;
+            border: 1px solid #ddd;
+        }
+        .hotspot-marker {
+            background: rgba(197, 32, 42, 0.75);
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        .map-empty-note {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Authority Dashboard</h1>
+        <p>All citizen complaints — review and update status</p>
+    </header>
+
+    <main class="container">
+
+        <h2 style="margin-bottom: 12px;">Complaint Hotspots</h2>
+        <div id="hotspotMap"></div>
+        <p id="mapEmptyNote" class="map-empty-note" style="display:none;">
+            No complaints with location data yet — hotspots will appear here as citizens submit complaints with GPS enabled.
+        </p>
+
+        <div class="filters">
+            <select id="filterStatus">
+                <option value="">All statuses</option>
+                <option value="submitted">Submitted</option>
+                <option value="in_review">In Review</option>
+                <option value="in_progress">In Progress</option>
+                <option value="resolved">Resolved</option>
+                <option value="rejected">Rejected</option>
+            </select>
+
+            <select id="filterCategory">
+                <option value="">All categories</option>
+                <option value="Water Supply">Water Supply</option>
+                <option value="Electricity">Electricity</option>
+                <option value="Roads & Infrastructure">Roads & Infrastructure</option>
+                <option value="Sanitation">Sanitation</option>
+                <option value="Public Safety">Public Safety</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <select id="filterPriority">
+                <option value="">All priorities</option>
+                <option value="critical">Critical</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+        </div>
+
+        <div id="complaintsList">Loading complaints...</div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="admin.js"></script>
+
+</body>
+</html>

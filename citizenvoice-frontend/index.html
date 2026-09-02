@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CitizenVoice</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-landmark"></i>
+            </div>
+
+            <div>
+                <h2>Citizen<span>Voice</span></h2>
+                <p>Citizen Grievance Portal</p>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#">Home</a>
+
+            <a href="#help">Help & Support</a>
+
+            <button class="login" onclick="login()">
+                Login
+            </button>
+
+            <button class="register" onclick="register()">
+                Register
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                <i class="fa-solid fa-circle-check"></i>
+                Citizen Support Portal
+            </div>
+
+            <h1>
+                Your Voice.
+                <br>
+                <span>Our Responsibility.</span>
+            </h1>
+
+            <p>
+                CitizenVoice makes it easier for citizens to raise concerns,
+                stay informed and connect with the right government authority.
+            </p>
+
+            <div class="small-note">
+                <i class="fa-solid fa-lock"></i>
+                Simple • Transparent • Citizen-focused
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HELP SECTION -->
+
+    <section class="help" id="help">
+
+        <div class="help-heading">
+
+            <div>
+                <p class="section-label">HELP & SUPPORT</p>
+
+                <h2>Need a little help?</h2>
+            </div>
+
+            <p class="help-description">
+                Our support team is available to assist citizens
+                with the portal and grievance process.
+            </p>
+
+        </div>
+
+
+        <div class="contact">
+
+
+            <!-- PHONE -->
+
+            <div class="contact-box">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <div>
+                    <p class="contact-label">HELPLINE</p>
+
+                    <h3>1800-XXX-XXXX</h3>
+
+                    <span>Available 24 × 7</span>
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-box">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div>
+                    <p class="contact-label">EMAIL</p>
+
+                    <h3>support@citizenvoice.in</h3>
+
+                    <span>Response within 24 hours</span>
+                </div>
+
+            </div>
+
+
+            <!-- HOURS -->
+
+            <div class="contact-box">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+                    <p class="contact-label">SUPPORT HOURS</p>
+
+                    <h3>24 × 7</h3>
+
+                    <span>Always available</span>
+                </div>
+
+            </div>
+
+
+            <!-- OFFICE -->
+
+            <div class="contact-box">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+                    <p class="contact-label">OFFICE</p>
+
+                    <h3>New Delhi, India</h3>
+
+                    <span>Citizen Support Centre</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- LOGIN POPUP -->
+
+    <div class="popup" id="loginPopup">
+
+        <div class="popup-box">
+
+            <button class="close" onclick="closePopup()">×</button>
+
+            <div class="popup-icon">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+
+            <h2>Welcome back</h2>
+
+            <p>Login to your CitizenVoice account.</p>
+
+            <input type="text" placeholder="Mobile number or Email">
+
+            <input type="password" placeholder="Password">
+
+            <button class="popup-btn" onclick="loginSuccess()">
+                Login
+            </button>
+
+            <p class="bottom-text">
+                Don't have an account?
+                <a onclick="register()">Register</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- REGISTER POPUP -->
+
+    <div class="popup" id="registerPopup">
+
+        <div class="popup-box">
+
+            <button class="close" onclick="closePopup()">×</button>
+
+            <div class="popup-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <h2>Create your account</h2>
+
+            <p>Register to use CitizenVoice.</p>
+
+            <input id="regFullName" type="text" placeholder="Full Name">
+
+            <input id="regPhone" type="tel" placeholder="Mobile Number">
+
+            <input id="regEmail" type="email" placeholder="Email Address">
+
+            <input id="regAadhaar" type="text" inputmode="numeric" maxlength="14"
+                placeholder="Aadhaar Number (e.g. 1234 5678 9012)">
+            <p id="aadhaarHint" style="font-size:10px; color:#82758d; margin:-6px 0 10px;">
+                Used only to verify format — never stored in full, only the last 4 digits.
+            </p>
+
+            <input id="regPassword" type="password" placeholder="Create Password">
+
+            <button class="popup-btn" onclick="registerSuccess()">
+                Register
+            </button>
+
+            <p class="bottom-text">
+                Already have an account?
+                <a onclick="login()">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="script.js"></script>
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+
+</body>
+
+</html>

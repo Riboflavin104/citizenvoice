@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Grievance Portal</title>
+    
+    <link rel="stylesheet" href="style1.css">
+    
+</head>
+
+<body>
+
+    <header>
+        <h1>Citizen Grievance Portal</h1>
+        <p>Report a problem in your area</p>
+    </header>
+
+    <main class="container">
+
+        <h2>Submit Your Complaint</h2>
+
+        <form id="complaintForm">
+
+            <!-- Complaint Theme -->
+            <div class="form-group">
+                <label for="title">Complaint Theme:<span style="color:red">*</span></label>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Example: Road pothole"
+                    required
+                >
+            </div>
+
+            <!-- Complaint Description -->
+            <div class="form-group">
+                <label for="description">Description of Complaint:<span style="color:red">*</span></label>
+                <textarea
+                    id="description"
+                    rows="6"
+                    placeholder="Describe the problem in detail..."
+                    required
+                ></textarea>
+            </div>
+
+            <!-- Location -->
+            <div class="form-group">
+                <label for="location">Location:<span style="color:red">*</span></label>
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Example: Andheri East, Mumbai"
+                    required
+                >
+            </div>
+
+            <!-- Photo Upload -->
+            <div class="form-group">
+                <label for="photo">Upload Photo of Complaint (optional):</label>
+
+                <input
+                    id="photo"
+                    type="file"
+                    accept="image/*"
+                >
+
+                <p class="hint">
+                    Upload a photo showing the problem (JPG, PNG, etc.)
+                </p>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit">Submit Complaint</button>
+
+        </form>
+
+        <div id="message"></div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script src="script.js"></script>
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+
+</body>
+</html>

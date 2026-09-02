@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Citizen Dashboard | CitizenVoice</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-landmark"></i>
+            </div>
+
+            <div>
+                <h2>Citizen<span>Voice</span></h2>
+                <p>Citizen Grievance Portal</p>
+            </div>
+
+        </div>
+
+
+        <button class="logout" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+
+    </header>
+
+
+
+    <!-- DASHBOARD -->
+
+    <main>
+
+        <div class="welcome">
+
+            <p class="small-title">CITIZEN DASHBOARD</p>
+
+            <h1>
+                Welcome to <span>CitizenVoice</span>
+            </h1>
+
+            <p class="description">
+                What would you like to do today?
+            </p>
+
+        </div>
+
+
+
+        <!-- OPTIONS -->
+
+        <section class="options">
+
+
+            <!-- BOOK COMPLAINT -->
+
+            <div class="option-card complaint">
+
+                <div class="option-icon">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                </div>
+
+                <div class="option-content">
+
+                    <p class="card-label">NEW COMPLAINT</p>
+
+                    <h2>Book a Complaint</h2>
+
+                    <p>
+                        Report your concern and submit a
+                        complaint to the concerned authority.
+                    </p>
+
+                    
+                    <button onclick="bookComplaint()">
+                        Book Complaint
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TRACK COMPLAINT -->
+
+            <div class="option-card track">
+
+                <div class="option-icon">
+                    <i class="fa-solid fa-magnifying-glass-location"></i>
+                </div>
+
+                <div class="option-content">
+
+                    <p class="card-label">EXISTING COMPLAINT</p>
+
+                    <h2>Track Complaint</h2>
+
+                    <p>
+                        Check the current status and progress
+                        of your submitted complaint.
+                    </p>
+
+                    <button onclick="trackComplaint()">
+                        Track Complaint
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- INFORMATION -->
+
+        <div class="info">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <div>
+
+                <strong>Need assistance?</strong>
+
+                <p>
+                    For help with registering or tracking a complaint,
+                    contact our citizen support team.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- AUTHORITY ACCESS (visible to all, but backend restricts actual data to staff accounts) -->
+
+        <p style="margin-top: 24px; text-align: center; font-size: 11px;">
+            <a id="authorityLink" href="admin.html" style="color: #8055b5; text-decoration: none; display:none;">
+                <i class="fa-solid fa-user-shield"></i>
+                Authority Dashboard
+            </a>
+        </p>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+    <script>requireLogin();</script>
+    <script src="script.js"></script>
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+
+</body>
+
+</html>
