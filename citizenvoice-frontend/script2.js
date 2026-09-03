@@ -10,8 +10,17 @@ async function logout() {
     await supabaseClient.auth.signOut();
     window.location.href = "index.html";
 }
+
 async function toggleAuthorityLink() {
-    const { data: { user } } = await supabaseClient.auth.getUser();
+    const authorityLink = document.getElementById("authorityLink");
+
+    // If this page doesn't have the authority link, do nothing
+    if (!authorityLink) return;
+
+    const {
+        data: { user }
+    } = await supabaseClient.auth.getUser();
+
     if (!user) return;
 
     const { data: profile } = await supabaseClient
@@ -21,7 +30,7 @@ async function toggleAuthorityLink() {
         .single();
 
     if (profile && profile.is_authority) {
-        document.getElementById("authorityLink").style.display = "inline";
+        authorityLink.style.display = "inline";
     }
 }
 
