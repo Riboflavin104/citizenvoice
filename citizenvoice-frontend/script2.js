@@ -14,6 +14,9 @@ async function logout() {
 async function toggleAuthorityLink() {
     const authorityLink = document.getElementById("authorityLink");
 
+    if (authorityLink && profile && profile.is_authority) {
+        authorityLink.style.display = "inline";
+    }
     // If this page doesn't have the authority link, do nothing
     if (!authorityLink) return;
 
