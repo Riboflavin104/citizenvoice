@@ -6,8 +6,12 @@
 const SUPABASE_URL = "https://jdwrzstdjdmvwfbtqsbv.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impkd3J6c3RkamRtdndmYnRxc2J2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyMzkwMzIsImV4cCI6MjEwMzgxNTAzMn0.axLewiVg2HpFB-a8c_72hokQFZrNCNUxJQV9q6zcAFU"; // safe to expose in frontend
 
-// Your FastAPI backend's base URL (uvicorn default shown here)
-const API_BASE_URL = "http://localhost:8000";
+// Your FastAPI backend's base URL.
+// Uses localhost automatically during local dev, and the live Render
+// backend automatically once deployed on Vercel — no manual swapping needed.
+const API_BASE_URL = window.location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : "https://citizenvoice-vh9k.onrender.com";
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
