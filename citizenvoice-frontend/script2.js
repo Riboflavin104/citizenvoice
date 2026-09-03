@@ -12,18 +12,7 @@ async function logout() {
 }
 
 async function toggleAuthorityLink() {
-    const authorityLink = document.getElementById("authorityLink");
-
-    if (authorityLink && profile && profile.is_authority) {
-        authorityLink.style.display = "inline";
-    }
-    // If this page doesn't have the authority link, do nothing
-    if (!authorityLink) return;
-
-    const {
-        data: { user }
-    } = await supabaseClient.auth.getUser();
-
+    const { data: { user } } = await supabaseClient.auth.getUser();
     if (!user) return;
 
     const { data: profile } = await supabaseClient
@@ -32,7 +21,9 @@ async function toggleAuthorityLink() {
         .eq("id", user.id)
         .single();
 
-    if (profile && profile.is_authority) {
+    const authorityLink = document.getElementById("authorityLink");
+
+    if (authorityLink && profile && profile.is_authority) {
         authorityLink.style.display = "inline";
     }
 }

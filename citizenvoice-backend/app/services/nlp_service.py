@@ -42,7 +42,7 @@ def embed(text: str, input_type: str = "search_document") -> list[float]:
     client = get_client()
     response = client.embed(
         texts=[text],
-        model=settings.embedding_model,  # e.g. "embed-multilingual-v3.0"
+        model="embed-multilingual-v3.0",  # e.g. "embed-multilingual-v3.0"
         input_type=input_type,
     )
     return response.embeddings[0]
