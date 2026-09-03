@@ -72,7 +72,7 @@ create table if not exists complaints (
     priority_score float default 0,
     priority_label text default 'low',
 
-    embedding vector(384),
+    embedding vector(1024),
     duplicate_of uuid references complaints(id),
     duplicate_count int default 1,
 
@@ -129,7 +129,7 @@ create policy "users can update own profile"
 
 -- 5. Duplicate-detection function (same as before)
 create or replace function match_similar_complaints (
-    query_embedding vector(384),
+    query_embedding vector(1024),
     match_threshold float default 0.15,
     match_count int default 5,
     exclude_id uuid default null
