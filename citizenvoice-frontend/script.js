@@ -59,18 +59,24 @@ function closePopup() {
 // LOGIN — replaces the old fake loginSuccess()
 async function loginSuccess() {
     const popup = document.getElementById("loginPopup");
-    const email = popup.querySelector('input[type="text"]').value.trim();
+    const identifier = popup.querySelector('input[type="text"]').value.trim();
     const password = popup.querySelector('input[type="password"]').value;
 
-    if (!email || !password) {
+    if (!identifier || !password) {
         alert("Please enter both email/mobile and password.");
         return;
     }
 
-    const { data, error } = await supabaseClient.auth.signInWithPassword({
-        email: email,
-        password: password,
-    });
+    const isPhone = /^\+?[0-9]{10,15}$/.test(identifier.replace(/[-\s]/g, ''));
+    const credentials = { password: password };
+    
+    if (isPhone) {
+        credentials.phone = identifier;
+    } else {
+        credentials.email = identifier;
+    }
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword(credentials);
 
     if (error) {
         alert("Login failed: " + error.message);
@@ -142,3 +148,31 @@ async function registerSuccess() {
     closePopup();
     login(); // open the login popup so they can sign in right away
 }
+
+// ========== COOKIE CONSENT BANNER ==========
+document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('cookieConsent')) return;
+
+    var banner = document.createElement('div');
+    banner.id = 'cookieBanner';
+    banner.innerHTML =
+        '<span>We use cookies to improve your experience. ' +
+        '<a href="privacy-policy.html" style="color:#a465ec;">Learn more</a></span>' +
+        '<button id="cookieAccept">Accept</button>';
+    banner.style.cssText =
+        'position:fixed;bottom:0;left:0;width:100%;background:#30204d;color:#fff;' +
+        'padding:14px 20px;display:flex;align-items:center;justify-content:center;' +
+        'gap:20px;font-size:14px;z-index:9999;';
+
+    var btn = banner.querySelector('#cookieAccept');
+    btn.style.cssText =
+        'background:#8120dc;color:#fff;border:none;padding:8px 18px;' +
+        'border-radius:5px;cursor:pointer;font-weight:bold;';
+
+    document.body.appendChild(banner);
+
+    document.getElementById('cookieAccept').addEventListener('click', function () {
+        localStorage.setItem('cookieConsent', 'true');
+        banner.style.display = 'none';
+    });
+});

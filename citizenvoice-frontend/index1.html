@@ -2,11 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citizen Grievance Portal</title>
+    <title>Submit a Complaint | CitizenVoice</title>
+    <meta name="description" content="Describe your civic issue in plain language — CitizenVoice's AI classifies and routes it to the right authority automatically.">
+
     
     <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
 </head>
 
@@ -48,13 +53,36 @@
             <!-- Location -->
             <div class="form-group">
                 <label for="location">Location:<span style="color:red">*</span></label>
-                <input
-                    type="text"
-                    id="location"
-                    placeholder="Example: Andheri East, Mumbai"
-                    required
-                >
+
+                <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Example: Andheri East, Mumbai"
+                        required
+                        style="flex:1; min-width:200px;"
+                    >
+                    <button type="button" id="gpsBtn"
+                        style="background:#8120dc;color:#fff;border:none;padding:9px 14px;
+                               border-radius:6px;cursor:pointer;white-space:nowrap;font-size:13px;
+                               display:flex;align-items:center;gap:6px;">
+                        📍 Use my location
+                    </button>
+                </div>
+
+                <!-- Hidden GPS coordinates — sent to backend -->
+                <input type="hidden" id="latitude">
+                <input type="hidden" id="longitude">
+
+                <!-- Live mini-map preview (shown after GPS fix) -->
+                <div id="gpsMapPreview"
+                    style="display:none; height:180px; margin-top:10px;
+                           border-radius:8px; border:1px solid #ddd; overflow:hidden;">
+                </div>
+
+                <p id="gpsStatus" class="hint" style="margin-top:6px;"></p>
             </div>
+
 
             <!-- Photo Upload -->
             <div class="form-group">

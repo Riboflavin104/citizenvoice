@@ -2,10 +2,13 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CitizenVoice</title>
+    <title>CitizenVoice — AI-Powered Civic Grievance Portal</title>
+    <meta name="description" content="CitizenVoice lets citizens report civic issues like potholes, power outages, and sanitation problems. AI classifies and prioritises every complaint automatically.">
+
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style1.css">
@@ -19,6 +22,7 @@
     <!-- NAVBAR -->
 
     <header>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
 
         <div class="logo">
 
@@ -36,7 +40,7 @@
 
         <nav>
 
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
 
             <a href="#help">Help & Support</a>
 
@@ -48,6 +52,8 @@
                 Register
             </button>
 
+        
+            <div class="mobile-menu-btn" onclick="this.parentElement.classList.toggle('active')"><i class="fa-solid fa-bars"></i></div>
         </nav>
 
     </header>
@@ -119,7 +125,7 @@
                 <div>
                     <p class="contact-label">HELPLINE</p>
 
-                    <h3>1800-XXX-XXXX</h3>
+                    <h3><a href="tel:1800-XXX-XXXX" style="color: inherit; text-decoration: none;">1800-XXX-XXXX</a></h3>
 
                     <span>Available 24 × 7</span>
                 </div>
@@ -138,7 +144,7 @@
                 <div>
                     <p class="contact-label">EMAIL</p>
 
-                    <h3>support@citizenvoice.in</h3>
+                    <h3><a href="mailto:support@citizenvoice.in" style="color: inherit; text-decoration: none;">support@citizenvoice.in</a></h3>
 
                     <span>Response within 24 hours</span>
                 </div>
@@ -215,7 +221,7 @@
 
             <p class="bottom-text">
                 Don't have an account?
-                <a onclick="register()">Register</a>
+                <a href="javascript:void(0)" onclick="register()">Register</a>
             </p>
 
         </div>
@@ -260,7 +266,7 @@
 
             <p class="bottom-text">
                 Already have an account?
-                <a onclick="login()">Login</a>
+                <a href="javascript:void(0)" onclick="login()">Login</a>
             </p>
 
         </div>

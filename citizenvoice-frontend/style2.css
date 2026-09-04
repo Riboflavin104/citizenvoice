@@ -13,6 +13,12 @@ body {
     color: #302044;
 
     min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 
@@ -512,4 +518,36 @@ main {
 
     }
 
+}
+/* Mobile Navigation & Breakpoints */
+.mobile-menu-btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #30204d;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    nav {
+        flex-direction: column;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        display: none;
+    }
+    nav.active {
+        display: flex;
+    }
+    nav a, nav button {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
 }
