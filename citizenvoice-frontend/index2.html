@@ -41,7 +41,7 @@
         </div>
 
 
-        <button class="logout" onclick="logout()">
+        <button class="logout" id="logoutBtn" type="button">
             <i class="fa-solid fa-right-from-bracket"></i>
             Logout
         </button>
@@ -95,7 +95,7 @@
                     </p>
 
                     
-                    <button onclick="bookComplaint()">
+                    <button id="bookComplaintBtn" type="button">
                         Book Complaint
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
@@ -125,7 +125,7 @@
                         of your submitted complaint.
                     </p>
 
-                    <button onclick="trackComplaint()">
+                    <button id="trackComplaintBtn" type="button">
                         Track Complaint
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
@@ -173,10 +173,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-client.js"></script>
-    <script>requireLogin();</script>
     <script src="script.js"></script>
-    <script src="script1.js"></script>
     <script src="script2.js"></script>
+    <script>requireLogin();</script>
 
 </body>
 
