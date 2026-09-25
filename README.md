@@ -26,3 +26,14 @@ Citizens in India file civic complaints (potholes, water leakage, power outages,
 ## Why it matters
 
 Most grievance portals are just digital complaint boxes someone still has to manually read, sort, and prioritize every entry. CitizenVoice does that triage automatically, so smaller municipal teams can respond faster, spot recurring problem areas before they escalate, and avoid duplicate effort on issues that have already been reported.
+
+## Team
+
+Built during Smart India Hackathon (Internal Hackathon) by a team of 6:
+
+- [Harshvardhan Bethu](https://github.com/Riboflavin104) — Backend,Database Auth & Deployment
+- [Aditya Bhosale](https://github.com/their-username) — Backend/Logic
+- [Chaitrali Deshpande](https://github.com/chaitralidesh2007) — Backend,Building Prototype/Presentation
+- [Daksh Jain](https://github.com/dakshjain2007) — Frontend/Testing & QA
+- [Aabha Bopalkar](https://github.com/aabhabopalkar-netizen) — Frontend & UI/UX Design
+- [Urmil Bagmar]() — Frontend,Presentation and Design
