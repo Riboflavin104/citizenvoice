@@ -33,7 +33,7 @@ Built during Smart India Hackathon (Internal Hackathon) by a team of 6:
 
 - [Harshvardhan Bethu](https://github.com/Riboflavin104) — Backend,Database Auth & Deployment
 - [Aditya Bhosale](https://github.com/their-username) — Backend/Logic
-- [Chaitrali Deshpande](https://github.com/chaitralidesh2007) — Backend,Building Prototype/Presentation
+- [Chaitrali Deshpande](https://github.com/chaitralidesh2007-crypto) — Backend,Building Prototype/Presentation
 - [Daksh Jain](https://github.com/dakshjain2007) — Frontend/Testing & QA
 - [Aabha Bopalkar](https://github.com/aabhabopalkar-netizen) — Frontend & UI/UX Design
 - [Urmil Bagmar]() — Frontend,Presentation and Design
